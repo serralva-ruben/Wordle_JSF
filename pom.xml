@@ -6,10 +6,10 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>lu.uni</groupId>
-  <artifactId>JSF-Example</artifactId>
+  <artifactId>wordle_JSF</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
-  <name>JSF-Example</name>
+  <name>wordle_JSF</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

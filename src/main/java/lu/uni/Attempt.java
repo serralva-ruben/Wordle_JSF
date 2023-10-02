@@ -24,7 +24,6 @@ public class Attempt {
         }
     }
 
-
     //Attempt at writting directly each letter
     // public void insertNextChar(Character c){
     //     int i=0;
