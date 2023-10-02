@@ -24,7 +24,7 @@
           </ui:repeat>
         </h:panelGroup>
         <h:form class="inputGroup">
-          <h:inputText value="#{wordleBean.inputText}" class="answerInput" maxlength="5" placeholder="answer">
+          <h:inputText value="#{wordleBean.inputText}" class="answerInput" maxlength="5" placeholder="answer" onkeydown="return /[a-zA-Z]/i.test(event.key)">
             <f:ajax event="change" execute="@this" listener="#{wordleBean.inputTextChangeListener}" />
             <f:validateLength minimum = "5" maximum="5"/>
           </h:inputText>
