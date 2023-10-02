@@ -1,0 +1,39 @@
+package lu.uni;
+
+import java.util.ArrayList;
+
+public class Attempt {
+    
+    private ArrayList<Letter> word = new ArrayList<>();
+
+    //Initialize the attempt with 5 empty chars inside the word arraylist
+    public Attempt(){
+        for(int i=0; i<5; i++){
+            word.add(new Letter());
+        }
+    }
+
+    public ArrayList<Letter> getWord(){
+        return this.word;
+    }
+
+    public void setWord(String w){
+        char[] wordChars = w.toCharArray();
+        for(int i=0; i<word.size();i++){
+            word.get(i).setChar(wordChars[i]);
+        }
+    }
+
+
+    //Attempt at writting directly each letter
+    // public void insertNextChar(Character c){
+    //     int i=0;
+    //     while(word.get(i) != ' ' && i<4) i++;
+    //     if(i<5) {word.set(i, c);}
+    //     else return;
+    // }
+
+    // public void setWord(ArrayList<Character> word){
+    //     if(word.isEmpty()) this.word = word;
+    // }
+}

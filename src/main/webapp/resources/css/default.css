@@ -1,0 +1,51 @@
+body{
+  background: rgb(244, 199, 199);
+  justify-content: center;
+  text-align: center;
+}
+
+.gridElement {
+  height: 6rem;
+  width: 6rem;
+  border: 3px solid #000000;
+  border-radius: 5px;
+  text-align: center;
+  font: 4rem "Fira Sans", sans-serif;
+  margin-bottom: 1rem;
+  margin-inline: 0.1rem;
+}
+
+#gridContainer {
+  display: grid;
+  grid-template-columns: repeat(5,0fr);
+  justify-content: center;
+}
+
+.answerInput {
+  text-align: center;
+  width: 18rem;
+  height: 4rem;
+  border-radius: 10px;
+  border: black solid 3px;
+  justify-content: center;
+  font: 2rem "Fira Sans", sans-serif;
+}
+
+.button{
+  height: 4rem;
+  width: 5rem;
+  border-radius: 10px;
+  border: black solid 3px;
+  font: 1rem "Fira Sans", sans-serif;
+  margin-inline: 1rem;
+}
+
+.inputGroup{
+  display: flex;  
+  justify-content: center;
+  margin-inline: 10vw;
+}
+
+#title {
+  font: 3rem "Fira Sans", sans-serif;
+}

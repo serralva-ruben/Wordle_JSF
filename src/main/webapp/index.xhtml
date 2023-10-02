@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:ui="jakarta.faces.facelets"
+  xmlns:h="jakarta.faces.html"
+  xmlns:f="jakarta.faces.core"
+  xml:lang="en"
+>
+  <h:head>
+    <title>
+      <ui:insert name="title">Default Title</ui:insert>
+    </title>
+  </h:head>
+  <h:body>
+    <ui:composition template="templates/basic_template.xhtml">
+      <ui:define name="content">
+        <h1 id="title">Wordle</h1>
+        <h:panelGroup id="gridContainer">
+          <ui:repeat var="i" value="#{wordleBean.getAttempts()}">
+            <ui:repeat var="j" value="#{i.getWord()}">
+              <h:outputText value="#{j.getChar()}" class="gridElement" style="background-color: #{j.getColor()}"/>
+            </ui:repeat>
+          </ui:repeat>
+        </h:panelGroup>
+        <h:form class="inputGroup">
+          <h:inputText value="#{wordleBean.inputText}" class="answerInput" maxlength="5" placeholder="answer">
+            <f:ajax event="change" execute="@this" listener="#{wordleBean.inputTextChangeListener}" />
+          </h:inputText>
+          <h:commandButton value="Submit" action="#{wordleBean.setWord()}" class="button"/>
+          <h:commandButton value="Reset" action="#{wordleBean.reset()}" class="button"/>
+        </h:form>
+      </ui:define>
+    </ui:composition>
+  </h:body>
+  
+</html>
