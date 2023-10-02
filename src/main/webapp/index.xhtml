@@ -26,6 +26,7 @@
         <h:form class="inputGroup">
           <h:inputText value="#{wordleBean.inputText}" class="answerInput" maxlength="5" placeholder="answer">
             <f:ajax event="change" execute="@this" listener="#{wordleBean.inputTextChangeListener}" />
+            <f:validateLength minimum = "5" maximum="5"/>
           </h:inputText>
           <h:commandButton value="Submit" action="#{wordleBean.setWord()}" class="button"/>
           <h:commandButton value="Reset" action="#{wordleBean.reset()}" class="button"/>
