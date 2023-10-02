@@ -19,7 +19,7 @@ public class WordleBean implements Serializable {
   private static ArrayList<Attempt> attempts = new ArrayList<>();
 
   private int currentAttempt = 0;
-  private String inputText = "ooooo";
+  private String inputText = "";
 
   private String randomWord;
 
@@ -86,6 +86,7 @@ public class WordleBean implements Serializable {
   }
 
   public void reset(){
+    inputText="";
     this.randomWord = wordList.get((int)(wordList.size()*Math.random()));
     for(int i=0; i<6;i++){attempts.set(i, new Attempt());}
     currentAttempt = 0;
