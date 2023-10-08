@@ -80,7 +80,7 @@ public class WordleBean implements Serializable {
       for(int i=0; i< inputChars.length; i++){
         for(int j=0;  j< randomWordChars.length; j++){
           if(inputChars[i]==randomWordChars[j] && i==j) attempts.get(currentAttempt).getWord().get(i).setColor("GREEN");
-          else if(inputChars[i]==randomWordChars[j]) attempts.get(currentAttempt).getWord().get(i).setColor("YELLOW");
+          else if(inputChars[i]==randomWordChars[j] && attempts.get(currentAttempt).getWord().get(i).getColor().equals("LIGHTGREY")) attempts.get(currentAttempt).getWord().get(i).setColor("YELLOW");
         }
       }
       currentAttempt++;
