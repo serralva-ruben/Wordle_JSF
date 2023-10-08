@@ -41,6 +41,7 @@ public class WordleBean implements Serializable {
         }
         reader.close();
       }
+      //read words list
       inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("/wordlist.txt");
       if(inputStream != null){
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -69,14 +70,14 @@ public class WordleBean implements Serializable {
 
   public int getCurrentAttempt(){return currentAttempt;}
 
+  //set the next attempt using the inputText
   public void setWord(){
     showInvalidWordWarning = false;
     if(currentAttempt<6 && inputText.length()==5 && wordList.contains(inputText)){
       attempts.get(currentAttempt).setWord(inputText);
       char[] randomWordChars = randomWord.toCharArray();
       char[] inputChars = inputText.toCharArray();
-      //optimise better??
-      //problem with repeated letters, one becomes yellow
+      //optimise better?? many useless comparisons being made
       for(int i=0; i< inputChars.length; i++){
         for(int j=0;  j< randomWordChars.length; j++){
           if(inputChars[i]==randomWordChars[j] && i==j) attempts.get(currentAttempt).getWord().get(i).setColor("GREEN");
@@ -96,6 +97,7 @@ public class WordleBean implements Serializable {
     inputText = event.getNewValue().toString();
   }
 
+  //resets the game
   public void reset(){
     inputText="";
     this.randomWord = answerList.get((int)(answerList.size()*Math.random()));

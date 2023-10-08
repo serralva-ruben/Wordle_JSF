@@ -17,6 +17,7 @@ public class Attempt {
         return this.word;
     }
 
+    //sets the word of the attempt
     public void setWord(String w){
         char[] wordChars = w.toCharArray();
         for(int i=0; i<word.size();i++){
