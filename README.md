@@ -1,4 +1,6 @@
 # wordle_JSF
+Made by Ruben Serralva
+Student ID: 0210333948
 
 Wordle game made using jakarta faces
 
