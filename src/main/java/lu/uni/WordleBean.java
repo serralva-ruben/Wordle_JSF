@@ -26,7 +26,7 @@ public class WordleBean implements Serializable {
   public WordleBean() {
     //read words from file
     try {
-      InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("/answers.txt");
+      InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("/answerlist.txt");
       if(inputStream != null){
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String line;
