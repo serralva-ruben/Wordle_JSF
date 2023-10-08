@@ -2,6 +2,8 @@ body{
   background: rgb(244, 199, 199);
   justify-content: center;
   text-align: center;
+  align-items: center;
+  display: flex;
 }
 
 .gridElement {
@@ -47,5 +49,18 @@ body{
 }
 
 #title {
-  font: 3rem "Fira Sans", sans-serif;
+  font: 3rem "Fira Sans", serif;
+}
+
+.warning {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-inline: 10rem;
+  font: 2rem "Fira Sans", sans-serif;
+  color: black;
+  background-color: red;
+  border: 2px black solid;
+  border-radius: 5px;
+  padding: 1rem;
 }

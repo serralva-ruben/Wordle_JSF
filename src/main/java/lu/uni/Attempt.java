@@ -23,16 +23,4 @@ public class Attempt {
             word.get(i).setChar(wordChars[i]);
         }
     }
-
-    //Attempt at writting directly each letter
-    // public void insertNextChar(Character c){
-    //     int i=0;
-    //     while(word.get(i) != ' ' && i<4) i++;
-    //     if(i<5) {word.set(i, c);}
-    //     else return;
-    // }
-
-    // public void setWord(ArrayList<Character> word){
-    //     if(word.isEmpty()) this.word = word;
-    // }
 }

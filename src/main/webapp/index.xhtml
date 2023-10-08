@@ -5,11 +5,12 @@
   xmlns:ui="jakarta.faces.facelets"
   xmlns:h="jakarta.faces.html"
   xmlns:f="jakarta.faces.core"
+  xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
   xml:lang="en"
 >
   <h:head>
     <title>
-      <ui:insert name="title">Default Title</ui:insert>
+      <ui:insert name="title">Wordle</ui:insert>
     </title>
   </h:head>
   <h:body>
@@ -24,13 +25,22 @@
           </ui:repeat>
         </h:panelGroup>
         <h:form class="inputGroup">
-          <h:inputText value="#{wordleBean.inputText}" class="answerInput" maxlength="5" placeholder="answer" onkeydown="return /[a-zA-Z]/i.test(event.key)" style="text-transform:lowercase">
+          <h:inputText value="#{wordleBean.inputText}" class="answerInput" maxlength="5" a:placeholder="answer" onkeydown="return /[a-zA-Z]/i.test(event.key)" style="text-transform:lowercase" disabled="#{wordleBean.isInputDisabled()}">
             <f:ajax event="change" execute="@this" listener="#{wordleBean.inputTextChangeListener}" />
             <f:validateLength minimum = "5" maximum="5"/>
           </h:inputText>
-          <h:commandButton value="Submit" action="#{wordleBean.setWord()}" class="button"/>
+          <h:commandButton value="Submit" action="#{wordleBean.setWord()}" class="button" update="warningOutput" disabled="#{wordleBean.isInputDisabled()}"/>
           <h:commandButton value="Reset" action="#{wordleBean.reset()}" class="button"/>
         </h:form>
+        <h:panelGroup id="warningOutput">
+            <h:outputText class="warning" value="Invalid word. Please try again!" rendered="#{wordleBean.getWarning()}" />
+        </h:panelGroup>
+        <h:panelGroup id="answerOutput">
+            <h:outputText class="warning" style="background-color: rgb(255, 199, 70)" value="Finished, The answer is #{wordleBean.getAnswer()}" rendered="#{wordleBean.shouldShowAnswerOutput()}" />
+        </h:panelGroup>
+        <h:panelGroup id="wonOutput">
+            <h:outputText class="warning" style="background-color: green" value="Congratulations, you won!" rendered="#{wordleBean.getWon()}" />
+        </h:panelGroup>
       </ui:define>
     </ui:composition>
   </h:body>
